@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esencia Mental | Clínica Psicológica</title>
+    <!-- Google Fonts para tipografías elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --white: #ffffff;
+            --primary: #7a8b79; /* Verde salvia */
+            --primary-dark: #637262;
+            --secondary: #e8c5c8; /* Rosa palo */
+            --secondary-light: #f7eded;
+            --accent-beige: #e9e4dc;
+            --text-main: #2c332e;
+            --text-muted: #5d6760;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .serif-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- NAVEGACIÓN FIJA --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(252, 251, 249, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-container span.brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .logo-container span.sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-agendar-header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(122, 139, 121, 0.2);
+        }
+
+        .btn-agendar-header:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--secondary-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            top: 10%;
+            left: 5%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .psychologist-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p.quote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 2.5rem;
+            line-height: 1.4;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(122, 139, 121, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-dark);
+            border: 2px solid var(--primary);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIONES GENERALES --- */
+        section {
+            padding: 6rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title span {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-main);
+        }
+
+        /* --- SOBRE NOSOTROS --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-image {
+            background-color: var(--accent-beige);
+            height: 400px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* --- CONOCE A LA PSICÓLOGA --- */
+        .psychologist-section {
+            background-color: var(--white);
+        }
+
+        .psychologist-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+
+        .psychologist-photo-wrapper {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            background-color: var(--accent-beige);
+        }
+
+        .psychologist-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .psychologist-info h3 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .psychologist-info .role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .psychologist-info p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+        }
+
+        .psychologist-info blockquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            border-left: 3px solid var(--primary);
+            padding-left: 1rem;
+            margin-top: 1.5rem;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        /* --- NUESTROS SERVICIOS --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(122, 139, 121, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .service-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            background-color: var(--secondary-light);
+            padding: 1rem;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- ¿POR QUÉ ELEGIRNOS? --- */
+        .why-us {
+            background-color: var(--secondary-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .feature-item .icon-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- NUESTRO ENFOQUE --- */
+        .approach-section {
+            background: linear-gradient(rgba(122, 139, 121, 0.05), rgba(122, 139, 121, 0.05));
+            text-align: center;
+            max-width: 900px;
+            margin: 4rem auto;
+            border-radius: 30px;
+            padding: 4rem 2rem;
+        }
+
+        .approach-section p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* --- ¿CÓMO FUNCIONA? --- */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            background-color: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+
+        .step-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .step-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .steps-footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+        }
+
+        /* --- TESTIMONIOS --- */
+        .testimonials-section {
+            background-color: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-color);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .stars {
+            color: #f39c12;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .testimonial-author {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+
+        /* --- PREGUNTAS FRECUENTES (FAQ) --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            color: var(--text-muted);
+            display: none;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* --- ENCUÉNTRANOS --- */
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-info h3 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-block h4 {
+            font-size: 1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-block p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: var(--accent-beige);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            border: 4px solid var(--white);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- AGENDA TU CITA (FORMULARIO) --- */
+        .booking-section {
+            background: linear-gradient(135deg, var(--secondary-light) 0%, var(--bg-color) 100%);
+        }
+
+        .booking-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 3rem;
+            border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #dcd6cd;
+            border-radius: 12px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            background-color: var(--bg-color);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: var(--white);
+            box-shadow: 0 0 0 3px rgba(122, 139, 121, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .radio-option input {
+            width: auto;
+            accent-color: var(--primary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(122, 139, 121, 0.3);
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--text-main);
+            color: var(--white);
+            padding: 5rem 10% 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .footer-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-content p {
+            color: #b0b8b2;
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact-details {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-contact-details a, .footer-contact-details span {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-contact-details a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .final-phrase {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 3rem;
+        }
+
+        .final-phrase blockquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #8c9690;
+            letter-spacing: 1px;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            .about-grid, 
+            .psychologist-container, 
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header>
+        <div class="logo-container">
+            <span class="brand">ESENCIA MENTAL</span>
+            <span class="sub">Clínica Psicológica</span>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">Sobre nosotros</a></li>
+            <li><a href="#psychologist">Psicóloga</a></li>
+            <li><a href="#services">Servicios</a></li>
+            <li><a href="#how-it-works">Proceso</a></li>
+            <li><a href="#faq">Preguntas</a></li>
+            <li><a href="#contact">Contacto</a></li>
+            <li><a href="#booking" class="btn-agendar-header">Agendar mi cita</a></li>
+        </ul>
+    </header>
+
+    <!-- PORTADA / HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>ESENCIA MENTAL</h1>
+            <h2>Clínica Psicológica</h2>
+            <div class="psychologist-name">María José Hinestroza | Psicóloga</div>
+            <p class="quote">“Tu bienestar emocional también merece un espacio.”</p>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem;">
+                Un espacio seguro para escucharte, comprenderte y acompañarte en cada etapa de tu proceso.
+            </p>
+            <div class="hero-buttons">
+                <a href="#booking" class="btn-primary">Agendar una cita</a>
+                <a href="#services" class="btn-secondary">Conoce nuestros servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="about">
+        <div class="section-title">
+            <span>🌷 Sobre Nosotros</span>
+            <h2>Un espacio para ti</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Esencia Mental es una clínica psicológica creada con el propósito de brindar acompañamiento profesional en un ambiente cálido, seguro y libre de juicios.</p>
+                <p>Creemos que pedir ayuda también es una forma de cuidarnos. Por eso, buscamos que cada persona encuentre en nuestra clínica un espacio donde pueda expresarse libremente, sentirse escuchada y trabajar en aquello que desea transformar.</p>
+                <p>Cada proceso psicológico es único, por lo que ofrecemos una atención basada en las necesidades, experiencias y objetivos de cada paciente.</p>
+            </div>
+            <div class="about-image">
+                <div style="text-align: center; color: var(--primary);">
+                    <i class="fas fa-seedling" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <p style="font-family: 'Playfair Display', serif; font-size: 1.2rem;">Un refugio para tu bienestar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONOCE A LA PSICÓLOGA -->
+    <section class="psychologist-section" id="psychologist">
+        <div class="section-title">
+            <span>👩🏻‍⚕️ Tu Especialista</span>
+            <h2>Conoce a la psicóloga</h2>
+        </div>
+        <div class="psychologist-container">
+            <div class="psychologist-photo-wrapper">
+                <!-- Cambia 'ruta-de-la-foto/maria-jose.jpg' por el nombre o ruta real del archivo de la foto -->
+                <img src="maria jose.jpg" alt="María José Hinestroza - Psicóloga Clínica" class="psychologist-photo">
+            </div>
+            <div class="psychologist-info">
+                <h3>María José Hinestroza</h3>
+                <span class="role">Psicóloga Clínica</span>
+                <p>Soy María José Hinestroza, psicóloga comprometida con el bienestar emocional y el desarrollo integral de las personas.</p>
+                <p>Mi objetivo es acompañar a cada paciente con empatía, respeto y profesionalismo, creando un espacio donde pueda sentirse escuchado y comprendido.</p>
+                <p>Considero que la terapia no consiste solamente en encontrar respuestas, sino también en aprender a conocernos, aceptar nuestra historia y descubrir nuevas herramientas para afrontar los desafíos de la vida.</p>
+                <blockquote>“No tienes que atravesar todo a solas. A veces, encontrar un espacio donde puedas ser tú mismo es el primer paso.”</blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUESTROS SERVICIOS -->
+    <section id="services">
+        <div class="section-title">
+            <span>🌱 Especialidades</span>
+            <h2>Nuestros servicios</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-user"></i>
+                <h3>Psicoterapia individual</h3>
+                <p>Un espacio personalizado para trabajar emociones, pensamientos, experiencias y situaciones que pueden estar afectando tu bienestar.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-wind"></i>
+                <h3>Ansiedad y estrés</h3>
+                <p>Acompañamiento para comprender y manejar situaciones de ansiedad, preocupación, estrés y sobrecarga emocional.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-spa"></i>
+                <h3>Autoestima y crecimiento personal</h3>
+                <p>Orientación para fortalecer la autoestima, el autoconocimiento, la seguridad personal y la relación contigo mismo.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heart"></i>
+                <h3>Acompañamiento emocional</h3>
+                <p>Un espacio para procesar emociones y afrontar diferentes situaciones o cambios importantes de la vida.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-seedling"></i>
+                <h3>Psicoterapia para adolescentes</h3>
+                <p>Acompañamiento psicológico adaptado a las necesidades emocionales y personales propias de la adolescencia.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-hands-holding-child"></i>
+                <h3>Psicoterapia para adultos</h3>
+                <p>Atención enfocada en las diferentes situaciones personales, familiares, laborales y emocionales que pueden presentarse durante la adultez.</p>
+            </div>
+            <div class="service-card" style="grid-column: 1 / -1; max-width: 500px; margin: 0 auto; width: 100%;">
+                <i class="fas fa-laptop"></i>
+                <h3>Terapia en línea</h3>
+                <p>Sesiones virtuales para quienes prefieren recibir acompañamiento psicológico desde la comodidad de su hogar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿POR QUÉ ELEGIR ESENCIA MENTAL? -->
+    <section class="why-us">
+        <div class="section-title">
+            <span>💗 Diferenciales</span>
+            <h2>¿Por qué elegir Esencia Mental?</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <span class="icon-emoji">🤍</span>
+                <h4>Atención personalizada</h4>
+                <p>Cada persona tiene una historia diferente y merece ser atendida de acuerdo con sus necesidades.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon-emoji">🌿</span>
+                <h4>Ambiente seguro</h4>
+                <p>Creamos un espacio de respeto, confianza y libre expresión.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon-emoji">🧠</span>
+                <h4>Atención profesional</h4>
+                <p>Nuestro acompañamiento busca brindar herramientas psicológicas adecuadas para cada proceso.</p>
+            </div>
+            <div class="feature-item">
+                <span class="icon-emoji">✨</span>
+                <h4>Sin juicios</h4>
+                <p>Tu historia merece ser escuchada con empatía y respeto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUESTRO ENFOQUE -->
+    <section>
+        <div class="approach-section">
+            <span style="color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 0.5rem;">🌸 Nuestro Enfoque</span>
+            <h2 style="font-size: 2.2rem; margin-bottom: 1.5rem; color: var(--text-main);">Una perspectiva humana y cercana</h2>
+            <p>En Esencia Mental entendemos la salud mental como una parte fundamental del bienestar integral.</p>
+            <p>Nuestro trabajo busca acompañar a cada persona desde una perspectiva humana, empática y profesional, respetando su ritmo y sus propias experiencias.</p>
+            <p style="margin-bottom: 0;">No buscamos decirte cómo vivir tu vida; buscamos ayudarte a comprenderte mejor y encontrar herramientas que te permitan avanzar.</p>
+        </div>
+    </section>
+
+    <!-- ¿CÓMO FUNCIONA TU PRIMERA CITA? (Sin etiqueta superior) -->
+    <section id="how-it-works">
+        <div class="section-title" style="margin-bottom: 3.5rem;">
+            <h2>¿Cómo funciona tu primera cita?</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <span class="step-number">01</span>
+                <h3>Agenda tu cita</h3>
+                <p>Comunícate con nosotros para elegir el día y horario que mejor se adapte a ti.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">02</span>
+                <h3>Primer encuentro</h3>
+                <p>Tendremos un primer espacio para conocernos, hablar sobre el motivo de consulta y conocer tus necesidades.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">03</span>
+                <h3>Conocemos tu proceso</h3>
+                <p>A partir de las primeras sesiones podremos identificar objetivos y establecer un plan de acompañamiento.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">04</span>
+                <h3>Trabajamos juntos</h3>
+                <p>Avanzaremos paso a paso, utilizando herramientas psicológicas que se adapten a tu proceso.</p>
+            </div>
+        </div>
+        <div class="steps-footer">
+            Cada proceso tiene su propio ritmo. No tienes que tener todo resuelto para comenzar.
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials-section">
+        <div class="section-title">
+            <span>💬 Experiencias</span>
+            <h2>Testimonios</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>“Encontré un espacio donde pude hablar sin sentirme juzgada. Poco a poco aprendí a entender mejor mis emociones y a confiar más en mí.”</p>
+                </div>
+                <div class="testimonial-author">— Paciente, 25 años.</div>
+            </div>
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>“La terapia me ayudó a descubrir herramientas que hoy utilizo en diferentes situaciones de mi vida. Me sentí acompañado durante todo el proceso.”</p>
+                </div>
+                <div class="testimonial-author">— Paciente, 31 años.</div>
+            </div>
+            <div class="testimonial-card">
+                <div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>“Desde la primera sesión sentí que estaba en un lugar seguro. Ha sido un proceso muy bonito de autoconocimiento.”</p>
+                </div>
+                <div class="testimonial-author">— Paciente, 19 años.</div>
+            </div>
+        </div>
+        <div class="testimonial-note">Estos testimonios son ejemplos ficticios para el proyecto.</div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (Sin etiqueta superior) -->
+    <section id="faq">
+        <div class="section-title" style="margin-bottom: 3.5rem;">
+            <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Necesito tener un problema grave para ir a terapia?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    No. La terapia también puede ayudarte a conocerte mejor, fortalecer tu autoestima, manejar emociones y trabajar en tu crecimiento personal.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Cuánto dura una sesión?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Las sesiones tienen una duración aproximada de 50 a 60 minutos.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Las sesiones son confidenciales?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sí. La confidencialidad y el respeto por la privacidad forman parte fundamental del proceso psicológico, dentro de los límites establecidos por la ética profesional y la legislación aplicable.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Puedo tener sesiones virtuales?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sí. Contamos con modalidad presencial y virtual.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Cuántas sesiones necesito?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Cada proceso es diferente. La duración dependerá de las necesidades, objetivos y evolución de cada persona.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    ¿Puedo cancelar o cambiar mi cita?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Sí. Puedes comunicarte con anticipación para solicitar un cambio de horario.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ENCUÉNTRANOS -->
+    <section style="background-color: var(--white);">
+        <div class="section-title">
+            <span>📍 Ubicación</span>
+            <h2>Encuéntranos</h2>
+        </div>
+        <div class="location-grid">
+            <div class="location-info">
+                <h3>Esencia Mental – Clínica Psicológica</h3>
+                <div class="info-block">
+                    <h4>Dirección</h4>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--primary);"></i> Zona 10, Ciudad de Guatemala, Guatemala</p>
+                </div>
+                <div class="info-block">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone-alt" style="color: var(--primary);"></i> +502 5555-1234</p>
+                    <p><i class="fas fa-envelope" style="color: var(--primary);"></i> contacto@esenciamental.com</p>
+                </div>
+                <div class="info-block">
+                    <h4>Horario de atención</h4>
+                    <p><strong>Lunes a viernes:</strong> 8:00 a.m. – 5:00 p.m.</p>
+                    <p><strong>Sábados:</strong> 8:00 a.m. – 12:00 p.m.</p>
+                    <p><strong>Domingos:</strong> Cerrado</p>
+                </div>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.1561741499554!2d-90.5132!3d14.6035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a38392fbf119%3A0x7d6fbf30cf613c7!2sZona%2010%2C%20Ciudad%20de%20Guatemala%2C%20Guatemala!5e0!3m2!1ses!2sgt!4v1650000000000!5m2!1ses!2sgt" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDA TU CITA (FORMULARIO) -->
+    <section class="booking-section" id="booking">
+        <div class="section-title">
+            <span>📅 Reserva</span>
+            <h2>Agenda tu cita</h2>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Da el primer paso hacia tu bienestar emocional.</p>
+        </div>
+        <div class="booking-form-container">
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="name">Nombre completo:</label>
+                    <input type="text" id="name" placeholder="Escribe tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" placeholder="Escribe tu correo" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Número de teléfono:</label>
+                    <input type="tel" id="phone" placeholder="Escribe tu teléfono" required>
+                </div>
+                <div class="form-group">
+                    <label>Modalidad:</label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="modalidad" value="Presencial" checked> Presencial
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="modalidad" value="Virtual"> Virtual
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Motivo de consulta:</label>
+                    <textarea id="reason" rows="4" placeholder="Cuéntanos brevemente cómo podemos ayudarte" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="date">Fecha preferida:</label>
+                    <input type="date" id="date" required>
+                </div>
+                <button type="submit" class="btn-submit">Enviar solicitud</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER (Sin etiqueta superior de contacto) -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h2>¿Tienes alguna pregunta?</h2>
+            <p>Estamos aquí para escucharte.</p>
+            
+            <div class="footer-contact-details">
+                <a href="tel:+50255551234"><i class="fas fa-phone-alt"></i> +502 5555-1234</a>
+                <a href="mailto:contacto@esenciamental.com"><i class="fas fa-envelope"></i> contacto@esenciamental.com</a>
+                <span><i class="fas fa-map-marker-alt"></i> Ciudad de Guatemala, Guatemala</span>
+            </div>
+
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+
+        <div class="final-phrase">
+            <blockquote>“Cuidar tu mente también es una forma de cuidarte.”</blockquote>
+            <p style="font-weight: 600; color: var(--white); margin-bottom: 0.3rem;">Esencia Mental</p>
+            <p style="font-size: 0.9rem; color: #b0b8b2; margin-bottom: 1.5rem;">Clínica Psicológica | María José Hinestroza</p>
+            <p class="copyright">&copy; 2026 Esencia Mental. Todos los derechos reservados. Un espacio para escucharte, comprenderte y acompañarte.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT PARA INTERACTIVIDAD -->
+    <script>
+        // Menú móvil desplegable
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace (responsive)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Acordeón para Preguntas Frecuentes (FAQ)
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+        // Simulación de envío del formulario de cita
+        const appointmentForm = document.getElementById('appointmentForm');
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            alert(`¡Gracias, ${name}! Hemos recibido tu solicitud correctamente. Nos pondremos en contacto contigo muy pronto para confirmar tu cita.`);
+            appointmentForm.reset();
+        });
+    </script>
+</body>
+</html>
